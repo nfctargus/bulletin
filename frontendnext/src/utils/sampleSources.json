@@ -1,0 +1,95 @@
+{
+	"status": "ok",
+	"sources": [
+		{
+			"id": "_ausfinance",
+			"name": "Australian Financial Review",
+			"description": "The Australian Financial Review reports the latest news from business, finance, investment and politics, updated in real time. It has a reputation for independent, award-winning journalism and is essential reading for the business and investor community.",
+			"url": "https://platinumoutsourcing.com.au/wp-content/uploads/2022/11/AFR.png",
+			"category": "business",
+			"language": "en",
+			"country": "au"
+		},
+		{
+			"id": "new.daily",
+			"name": "The New Daily",
+			"description": "Latest news headlines locally from Australia and the World. Get breaking news, politics, finance, entertainment, lifestyle, sport, weather and more.",
+			"url": "https://pbs.twimg.com/profile_images/539549629847584769/3to5Was6_400x400.png",
+			"category": "business",
+			"language": "en",
+			"country": "au"
+		},
+		{
+			"id": "bloomberg",
+			"name": "Bloomberg",
+			"description": "Bloomberg delivers business and markets news, data, analysis, and video to the world, featuring stories from Businessweek and Bloomberg News.",
+			"url": "https://assets.bbhub.io/media/sites/21/2019/06/Capture.png",
+			"category": "business",
+			"language": "en",
+			"country": "us"
+		},
+		{
+			"id": "businessinsider",
+			"name": "Business Insider",
+			"description": "Business Insider is a fast-growing business site with deep financial, media, tech, and other industry verticals. Launched in 2007, the site is now the largest business news site on the web.",
+			"url": "https://i.insider.com/628273a89147a30018b48c44?width=500&format=jpeg",
+			"category": "business",
+			"language": "en",
+			"country": "us"
+		},
+		{
+			"id": "financial.post",
+			"name": "Financial Post",
+			"description": "Find the latest happenings in the Canadian Financial Sector and stay up to date with changing trends in Business Markets. Read trading and investing advice from professionals.",
+			"url": "https://d3g9pb5nvr3u7.cloudfront.net/sites/532b3a511cb7afd642e0e1c0/1693291516/256.jpg",
+			"category": "finance",
+			"language": "en",
+			"country": "ca"
+		},
+		{
+			"id": "theguardian_",
+			"name": "The Guardian",
+			"description": "Latest US news, world news, sports, business, opinion, analysis and reviews from the Guardian, the world's leading liberal voice.",
+			"url": "https://i.pinimg.com/originals/3e/ab/ae/3eabae6b843c200be67840755b34a19c.png",
+			"category": "business",
+			"language": "en",
+			"country": "au"
+		},
+		{
+			"id": "fortune",
+			"name": "Fortune",
+			"description": "Fortune 500 Daily and Breaking Business News",
+			"url": "https://media.licdn.com/dms/image/C560BAQFntQPegYt40Q/company-logo_100_100/0/1656617167690?e=2147483647&v=beta&t=n8b-9lgZ42Qw8AmOn2lTeGwPyrTs4vI21mgoM4aft4Q",
+			"category": "business",
+			"language": "en",
+			"country": "us"
+		},
+		{
+			"id": "wallstjournal",
+			"name": "The Wall Street Journal",
+			"description": "WSJ online coverage of breaking news and current headlines from the US and around the world. Top stories, photos, videos, detailed analysis and in-depth reporting.",
+			"url": "https://s.wsj.net/img/meta/wsj-social-share.png",
+			"category": "business",
+			"language": "en",
+			"country": "us"
+		},
+		{
+			"id": "the.australian",
+			"name": "The Australian",
+			"description": "The Australian brings you the latest Australian news as well as latest politics, sports, entertainment, technology, lifestyle and breaking world news.",
+			"url": "https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0005/7640/brand.gif?itok=M5OSDtsS",
+			"category": "sports",
+			"language": "en",
+			"country": "au"
+		},
+		{
+			"id": "abcnews",
+			"name": "ABC News",
+			"description": "The Australian brings you the latest Australian news as well as latest politics, sports, entertainment, technology, lifestyle and breaking world news.",
+			"url": "https://upload.wikimedia.org/wikipedia/commons/2/2f/ABC-2021-LOGO.svg",
+			"category": "business",
+			"language": "en",
+			"country": "au"
+		}
+	]
+}
