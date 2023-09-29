@@ -1,7 +1,10 @@
-import { formatDate, truncateArticleText } from '../utils/helpers';
 import { Publisher, Article } from '../utils/types';
 import { css } from '@emotion/css';
 import HeroSkeleton from './skeletons/HeroSkeleton';
+import PublisherNameAndDate from '../partials/PublisherNameAndDate';
+import ArticleTitle from '../partials/ArticleTitle';
+import ArticleDescription from '../partials/ArticleDescription';
+import ArticleCategoryReadTime from '../partials/ArticleCategoryReadTime';
 
 type Props = {
 	getPublisher: (id: number) => Publisher | undefined;
@@ -75,44 +78,10 @@ const FeaturedArticle = ({ getPublisher, getArticle }: Props) => {
 							gap: 16px;
 							padding: 0 20px;
 						`}>
-						<h2
-							className={css`
-								font-weight: 400;
-								display: flex;
-								align-items: center;
-
-								font-size: 16px;
-							`}>
-							<img
-								className={css`
-									width: 24px;
-									height: 24px;
-									border-radius: 50%;
-									margin: 0 4px;
-								`}
-								src={publisher?.logoUrl}
-								alt={publisher?.name}
-							/>
-							{publisher?.name} ● {article && formatDate(article.publishedAt)}
-						</h2>
-						<h1
-							className={css`
-								flex-grow: 1;
-								color: #1f1f1f;
-								font-family: 'Noto Serif', serif;
-							`}>
-							{article?.title}
-						</h1>
-						<div>{article && truncateArticleText(article!.description, 100)}</div>
-						<div>
-							<span
-								className={css`
-									color: #e9353b;
-								`}>
-								{article?.category}
-							</span>{' '}
-							● {article?.readTime} min read
-						</div>
+						<PublisherNameAndDate publisherName={publisher?.name} datePublished={article.publishedAt} publisherLogoUrl={publisher?.logoUrl} logoSize="24px" fontSize="16px" />
+						<ArticleTitle flexGrow title={article.title} fontSize="32px" />
+						<ArticleDescription description={article.description} truncAt={100} />
+						<ArticleCategoryReadTime articleCategory={article.category} articleReadTime={article.readTime} />
 					</div>
 				</div>
 			)}

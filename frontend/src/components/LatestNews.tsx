@@ -6,6 +6,8 @@ import { SectionHeaderStyle } from '../utils/styles';
 import StyledLink from '../partials/StyledLink';
 import { Link } from 'react-router-dom';
 import LatestNewsSkeleton from './skeletons/LatestNewsSkeleton';
+import PublisherNameAndDate from '../partials/PublisherNameAndDate';
+import ArticleTitle from '../partials/ArticleTitle';
 
 type Props = {
 	publishers: Publisher[];
@@ -68,25 +70,7 @@ const LatestNews = ({ publishers, articles, getPublisher }: Props) => {
 								src={article.urlToImage}
 								alt={article.title}
 							/>
-							<small
-								className={css`
-									font-size: 11px;
-									font-weight: 400;
-									display: flex;
-									align-items: center;
-								`}>
-								<img
-									className={css`
-										width: 12px;
-										height: 12px;
-										border-radius: 50%;
-										margin: 0 4px;
-									`}
-									src={getPublisher(article.publisher)?.logoUrl}
-									alt={getPublisher(article.publisher)?.name}
-								/>
-								{getPublisher(article.publisher)?.name} ● {article.publishedAt && formatDate(article.publishedAt)}
-							</small>
+							<PublisherNameAndDate datePublished={article.publishedAt} publisherName={getPublisher(article.publisher)?.name} fontSize="11px" logoSize="12px" publisherLogoUrl={getPublisher(article.publisher)?.logoUrl} />
 							<h3
 								className={css`
 									font-size: 16px;
@@ -96,6 +80,7 @@ const LatestNews = ({ publishers, articles, getPublisher }: Props) => {
 								`}>
 								{article.title.length > 60 ? `${article.title.substring(0, 60)}...` : article.title}
 							</h3>
+							<ArticleTitle fontSize="16px" title={article.title} flexGrow />
 							<p
 								className={css`
 									font-weight: 400;
