@@ -7,7 +7,6 @@ import { Article, Publisher } from './utils/types';
 import { getArticles, getPublishers } from './utils/api';
 import LatestNews from './components/LatestNews';
 import TrendingPages from './components/TrendingPages';
-import HeroSkeleton from './components/skeletons/HeroSkeleton';
 import MustRead from './components/MustRead';
 import EditorPick from './components/EditorPick';
 import Categories from './components/Categories';
@@ -32,24 +31,43 @@ const App = () => {
 	const getMustReadArticles = () => {
 		return articles?.filter((article) => article.flags.find((f) => f === 'must-read'));
 	};
+	const getEditorsPickArticles = () => {
+		return articles?.filter((article) => article.flags.find((f) => f === 'editors-pick'));
+	};
+	const getArticleByCategory = (category: string) => {
+		return articles?.filter((article) => article.category === category);
+	};
 
 	return (
 		<div
 			className={css`
-				padding: 24px 86px;
-				display: flex;
-				justify-content: center;
-				flex-direction: column;
+				display: grid;
+				place-items: center;
 			`}>
-			<Header />
-			<FeaturedArticle getPublisher={getPublisherById} getArticle={getArticleById} />
+			<div
+				className={css`
+					padding: 24px 86px;
+					gap: 50px;
+					display: flex;
+					justify-content: center;
+					flex-direction: column;
 
-			<LatestNews articles={articles!} publishers={publishers!} getPublisher={getPublisherById} />
-			<TrendingPages publishers={publishers} />
-			<MustRead articles={getMustReadArticles()} getPublisher={getPublisherById} />
-			<EditorPick />
-			<Categories />
-			<Footer />
+					width: 80vw;
+					@media (min-width: 1280px) {
+						display: grid;
+						place-items: center;
+						width: 55vw;
+					}
+				`}>
+				<Header />
+				<FeaturedArticle getPublisher={getPublisherById} getArticle={getArticleById} />
+				<LatestNews articles={articles!} publishers={publishers!} getPublisher={getPublisherById} />
+				<TrendingPages publishers={publishers} />
+				<MustRead articles={getMustReadArticles()} getPublisher={getPublisherById} />
+				<EditorPick articles={getEditorsPickArticles()} getPublisher={getPublisherById} />
+				<Categories getArticles={getArticleByCategory} getPublisher={getPublisherById} />
+				<Footer />
+			</div>
 		</div>
 	);
 };

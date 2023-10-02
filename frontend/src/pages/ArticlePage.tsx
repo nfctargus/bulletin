@@ -8,9 +8,9 @@ const ArticlePage = () => {
 	const { id } = useParams();
 	useEffect(() => {
 		getArticleById(parseInt(id!)).then((a) => {
-			setArticle(a.data[0]);
+			setArticle(a.data);
 		});
 	}, [id]);
-	return <div>{article?.title}</div>;
+	return <div>{article?.title}...</div>;
 };
 export default ArticlePage;

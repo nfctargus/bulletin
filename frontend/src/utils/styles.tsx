@@ -1,6 +1,11 @@
 import styled from '@emotion/styled';
-import { css, keyframes } from '@emotion/react';
+import { css } from '@emotion/react';
 
+export const SectionWrapperStyle = styled.div`
+	display: grid;
+	place-items: center;
+	width: 100%;
+`;
 export const HeaderStyle = styled.div`
 	display: flex;
 	flex-direction: row;
@@ -84,7 +89,6 @@ export const FooterMenuListStyle = styled.ul`
 export const SectionHeaderStyle = styled.h1`
 	font-size: 24px;
 	font-weight: 600;
-
 	color: #1f1f1f;
 `;
 type SkeletonProps = {

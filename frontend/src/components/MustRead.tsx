@@ -2,6 +2,12 @@ import { css } from '@emotion/css';
 import { Article, Publisher } from '../utils/types';
 import { formatDate, truncateArticleText } from '../utils/helpers';
 import { Link } from 'react-router-dom';
+import { SectionWrapperStyle } from '../utils/styles';
+import SectionHeader from '../partials/SectionHeader';
+import PublisherNameAndDate from '../partials/PublisherNameAndDate';
+import ArticleTitle from '../partials/ArticleTitle';
+import ArticleDescription from '../partials/ArticleDescription';
+import ArticleCategoryReadTime from '../partials/ArticleCategoryReadTime';
 
 type Props = {
 	articles?: Article[];
@@ -9,13 +15,13 @@ type Props = {
 };
 const MustRead = ({ articles, getPublisher }: Props) => {
 	return (
-		<>
+		<SectionWrapperStyle>
+			<SectionHeader headerText="Must Read" showSeeMoreText />
 			{articles && (
 				<div
 					className={css`
 						display: flex;
 						width: 100%;
-						margin: 25px 0;
 						height: 30vh;
 						gap: 16px;
 					`}>
@@ -29,7 +35,7 @@ const MustRead = ({ articles, getPublisher }: Props) => {
 							justify-content: space-evenly;
 							border-radius: 5px;
 							gap: 16px;
-							padding: 5px;
+							padding: 12px;
 							&:hover {
 								background-color: #f9f9f9f4;
 							}
@@ -54,55 +60,10 @@ const MustRead = ({ articles, getPublisher }: Props) => {
 								border-radius: 5px;
 								height: 50%;
 							`}>
-							<small
-								className={css`
-									font-size: 11px;
-									font-weight: 400;
-									display: flex;
-									align-items: center;
-								`}>
-								<img
-									className={css`
-										width: 12px;
-										height: 12px;
-										border-radius: 50%;
-										margin: 0 4px;
-									`}
-									src={getPublisher(articles[0].publisher)?.logoUrl}
-									alt={getPublisher(articles[0].publisher)?.name}
-								/>
-								{getPublisher(articles[0].publisher)?.name} ● {articles[0].publishedAt && formatDate(articles[0].publishedAt)}
-							</small>
-							<h3
-								className={css`
-									font-size: 16px;
-									flex-grow: 1;
-									color: #1f1f1f;
-									font-family: 'Noto Serif', serif;
-								`}>
-								{truncateArticleText(articles[0].title, 100)}
-							</h3>
-							<p
-								className={css`
-									font-weight: 400;
-									font-size: 13px;
-								`}>
-								{truncateArticleText(articles[0].description, 100)}
-							</p>
-							<small
-								className={css`
-									font-weight: 400;
-									font-size: 11px;
-								`}>
-								<b
-									className={css`
-										font-weight: 400;
-										color: #e9353b;
-									`}>
-									War
-								</b>{' '}
-								● {articles[0].readTime} min read
-							</small>
+							<PublisherNameAndDate publisherName={getPublisher(articles[0].publisher)?.name} datePublished={articles[0].publishedAt} publisherLogoUrl={getPublisher(articles[0].publisher)?.logoUrl} logoSize="12px" fontSize="11px" />
+							<ArticleTitle flexGrow title={articles[0].title} fontSize="16px" truncAt={55} />
+							<ArticleDescription description={articles[0].description} truncAt={100} fontSize="13px" />
+							<ArticleCategoryReadTime articleCategory={articles[0].category} articleReadTime={articles[0].readTime} fontSize="11px" />
 						</div>
 					</Link>
 					<div
@@ -139,52 +100,10 @@ const MustRead = ({ articles, getPublisher }: Props) => {
 								gap: 16px;
 								padding: 16px;
 							`}>
-							<small
-								className={css`
-									font-size: 11px;
-									font-weight: 400;
-									display: flex;
-									align-items: center;
-									color: #f5f5f5;
-								`}>
-								<img
-									className={css`
-										width: 12px;
-										height: 12px;
-										border-radius: 50%;
-										margin: 0 4px;
-									`}
-									src={getPublisher(articles[1].publisher)?.logoUrl}
-									alt={getPublisher(articles[1].publisher)?.name}
-								/>
-								{getPublisher(articles[1].publisher)?.name} ● {articles[1].publishedAt && formatDate(articles[1].publishedAt)}
-							</small>
-							<h3
-								className={css`
-									font-size: 16px;
-									flex-grow: 1;
-									color: #f5f5f5;
-									font-family: 'Noto Serif', serif;
-								`}>
-								{truncateArticleText(articles[1].title, 100)}
-							</h3>
-							<p
-								className={css`
-									font-weight: 400;
-									font-size: 13px;
-									color: #f5f5f5;
-								`}>
-								{truncateArticleText(articles[2].description, 200)}
-							</p>
-							<small
-								key={articles[1].id}
-								className={css`
-									font-weight: 400;
-									font-size: 11px;
-									color: #f5f5f5;
-								`}>
-								{articles[1].category} ● {articles[1].readTime} min read
-							</small>
+							<PublisherNameAndDate publisherName={getPublisher(articles[1].publisher)?.name} datePublished={articles[1].publishedAt} publisherLogoUrl={getPublisher(articles[1].publisher)?.logoUrl} logoSize="12px" fontSize="11px" fontColor="#f5f5f5" />
+							<ArticleTitle flexGrow title={articles[1].title} fontSize="16px" truncAt={100} fontColor="#f5f5f5" />
+							<ArticleDescription description={articles[1].description} truncAt={185} fontSize="13px" fontColor="#f5f5f5" />
+							<ArticleCategoryReadTime articleCategory={articles[1].category} articleReadTime={articles[1].readTime} fontSize="11px" fontColor="#f5f5f5" />
 						</div>
 					</div>
 					<div
@@ -222,50 +141,9 @@ const MustRead = ({ articles, getPublisher }: Props) => {
 									border-radius: 5px;
 								`}
 							/>
-							<small
-								className={css`
-									font-size: 11px;
-									font-weight: 400;
-									padding: 5px 0;
-									display: flex;
-									align-items: center;
-								`}>
-								<img
-									className={css`
-										width: 12px;
-										height: 12px;
-										border-radius: 50%;
-										margin: 0 4px;
-									`}
-									src={getPublisher(articles[2].publisher)?.logoUrl}
-									alt={getPublisher(articles[2].publisher)?.name}
-								/>
-								{getPublisher(articles[2].publisher)?.name} ● {articles[2].publishedAt && formatDate(articles[2].publishedAt)}
-							</small>
-							<h3
-								className={css`
-									font-size: 16px;
-									flex-grow: 1;
-									color: #1f1f1f;
-									font-family: 'Noto Serif', serif;
-								`}>
-								{truncateArticleText(articles[2].title, 50)}
-							</h3>
-							<small
-								key={articles[2].id}
-								className={css`
-									font-weight: 400;
-									font-size: 11px;
-								`}>
-								<b
-									className={css`
-										font-weight: 400;
-										color: #e9353b;
-									`}>
-									{articles[2].category}
-								</b>{' '}
-								● {articles[2].readTime} min read
-							</small>
+							<PublisherNameAndDate publisherName={getPublisher(articles[2].publisher)?.name} datePublished={articles[2].publishedAt} logoSize="12px" fontSize="11px" publisherLogoUrl={getPublisher(articles[2].publisher)?.logoUrl} padding="5px 0" />
+							<ArticleTitle flexGrow title={articles[2].title} fontSize="14px" truncAt={35} />
+							<ArticleCategoryReadTime articleCategory={articles[2].category} articleReadTime={articles[2].readTime} fontSize="11px" />
 						</Link>
 						<Link
 							key={articles[3].id}
@@ -293,55 +171,14 @@ const MustRead = ({ articles, getPublisher }: Props) => {
 									border-radius: 5px;
 								`}
 							/>
-							<small
-								className={css`
-									font-size: 11px;
-									font-weight: 400;
-									padding: 5px 0;
-									display: flex;
-									align-items: center;
-								`}>
-								<img
-									className={css`
-										width: 12px;
-										height: 12px;
-										border-radius: 50%;
-										margin: 0 4px;
-									`}
-									src={getPublisher(articles[3].publisher)?.logoUrl}
-									alt={getPublisher(articles[3].publisher)?.name}
-								/>
-								{getPublisher(articles[3].publisher)?.name} ● {articles[2].publishedAt && formatDate(articles[3].publishedAt)}
-							</small>
-							<h3
-								className={css`
-									font-size: 16px;
-									flex-grow: 1;
-									color: #1f1f1f;
-									font-family: 'Noto Serif', serif;
-								`}>
-								{truncateArticleText(articles[3].title, 42)}
-							</h3>
-							<small
-								key={articles[3].id}
-								className={css`
-									font-weight: 400;
-									font-size: 11px;
-								`}>
-								<b
-									className={css`
-										font-weight: 400;
-										color: #e9353b;
-									`}>
-									{articles[3].category}
-								</b>{' '}
-								● {articles[3].readTime} min read
-							</small>
+							<PublisherNameAndDate publisherName={getPublisher(articles[3].publisher)?.name} datePublished={articles[3].publishedAt} logoSize="12px" fontSize="11px" publisherLogoUrl={getPublisher(articles[3].publisher)?.logoUrl} padding="5px 0" />
+							<ArticleTitle flexGrow title={articles[3].title} fontSize="14px" truncAt={35} />
+							<ArticleCategoryReadTime articleCategory={articles[3].category} articleReadTime={articles[3].readTime} fontSize="11px" />
 						</Link>
 					</div>
 				</div>
 			)}
-		</>
+		</SectionWrapperStyle>
 	);
 };
 export default MustRead;

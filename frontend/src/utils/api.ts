@@ -10,4 +10,4 @@ export const getPublisherById = (id: number) => axiosClient.get<Publisher>(`${AP
 
 export const getArticles = () => axiosClient.get<Article[]>(`${API_URL}/articles`);
 export const getMustReadArticles = () => axiosClient.get<Article[]>(`${API_URL}/articles-must-read`);
-export const getArticleById = (id: number) => axiosClient.get<Article[]>(`${API_URL}/articles/${id}`);
+export const getArticleById = (id: number) => axiosClient.get<Article>(`${API_URL}/articles/${id}`);

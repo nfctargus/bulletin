@@ -5,6 +5,7 @@ import PublisherNameAndDate from '../partials/PublisherNameAndDate';
 import ArticleTitle from '../partials/ArticleTitle';
 import ArticleDescription from '../partials/ArticleDescription';
 import ArticleCategoryReadTime from '../partials/ArticleCategoryReadTime';
+import { SectionWrapperStyle } from '../utils/styles';
 
 type Props = {
 	getPublisher: (id: number) => Publisher | undefined;
@@ -14,22 +15,22 @@ const FeaturedArticle = ({ getPublisher, getArticle }: Props) => {
 	const article = getArticle(50006);
 	const publisher = getPublisher(1010);
 	return (
-		<>
+		<SectionWrapperStyle>
 			<div
 				className={css`
 					background: #f5f5f5;
 					border-radius: 5px;
-					margin: 25px 0;
 					display: grid;
+					width: 100%;
 					place-items: center;
-					padding: 24px 0;
+					padding: 28px 0;
 					color: #1f1f1f;
 				`}>
 				<h1
 					className={css`
 						text-transform: uppercase;
 						font-size: 16px;
-						padding: 16px;
+						padding: 16px 0;
 						letter-spacing: 2px;
 						color: #1f1f1f;
 					`}>
@@ -53,11 +54,11 @@ const FeaturedArticle = ({ getPublisher, getArticle }: Props) => {
 						align-items: center;
 						height: 50%;
 						width: 100%;
-						margin: 25px 0;
+						margin-top: 25px;
 					`}>
 					<div
 						className={css`
-							width: 75%;
+							width: 50%;
 							padding-right: 40px;
 						`}>
 						<img
@@ -77,15 +78,16 @@ const FeaturedArticle = ({ getPublisher, getArticle }: Props) => {
 							flex-direction: column;
 							gap: 16px;
 							padding: 0 20px;
+							width: 50%;
 						`}>
 						<PublisherNameAndDate publisherName={publisher?.name} datePublished={article.publishedAt} publisherLogoUrl={publisher?.logoUrl} logoSize="24px" fontSize="16px" />
 						<ArticleTitle flexGrow title={article.title} fontSize="32px" />
-						<ArticleDescription description={article.description} truncAt={100} />
+						<ArticleDescription description={article.description} truncAt={200} />
 						<ArticleCategoryReadTime articleCategory={article.category} articleReadTime={article.readTime} />
 					</div>
 				</div>
 			)}
-		</>
+		</SectionWrapperStyle>
 	);
 };
 export default FeaturedArticle;

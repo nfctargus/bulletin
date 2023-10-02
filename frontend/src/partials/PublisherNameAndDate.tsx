@@ -5,19 +5,22 @@ type Props = {
 	datePublished?: string;
 	publisherLogoUrl?: string;
 	logoSize?: string;
-	textColor?: string;
+	fontColor?: string;
 	fontSize?: string;
 	fontWeight?: number;
+	padding?: string;
 };
 const PublisherNameAndDate = (props: Props) => {
-	const { publisherName, datePublished, publisherLogoUrl, fontSize, logoSize, fontWeight } = props;
+	const { publisherName, datePublished, publisherLogoUrl, fontSize, logoSize, fontWeight, fontColor, padding } = props;
 	return (
 		<small
 			className={css`
-				font-size: ${fontSize};
+				font-size: ${fontSize || '12px'};
 				font-weight: ${fontWeight || 400};
+				color: ${fontColor ? fontColor : '#3c3c3c'};
 				display: flex;
 				align-items: center;
+				padding: ${padding ? padding : 0};
 			`}>
 			<img
 				className={css`

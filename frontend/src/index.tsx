@@ -6,13 +6,17 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
 import ArticlePage from './pages/ArticlePage';
+import CategoriesPage from './pages/CategoriesPage';
+import SelectedCategoryPage from './pages/SelectedCategoryPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
 	<BrowserRouter>
 		<Routes>
-			<Route path="/" element={<App />} /> {/* 👈 Renders at /app/ */}
-			<Route path="/articles/:id" element={<ArticlePage />} /> {/* 👈 Renders at /app/ */}
+			<Route path="/" element={<App />} />
+			<Route path="/articles/:id" element={<ArticlePage />} />
+			<Route path="/categories" element={<CategoriesPage />} />
+			<Route path="/categories/:category" element={<SelectedCategoryPage />} />
 		</Routes>
 	</BrowserRouter>
 );

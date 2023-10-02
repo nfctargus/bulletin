@@ -14,7 +14,6 @@ const Footer = () => {
 					align-items: center;
 					background-color: #f5f5f5;
 					padding: 40px;
-					margin: 50px 0;
 					border-radius: 5px;
 				`}>
 				<div

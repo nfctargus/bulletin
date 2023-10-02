@@ -1,31 +1,21 @@
-import StyledLink from '../partials/StyledLink';
-import { SectionHeaderStyle } from '../utils/styles';
+import { SectionWrapperStyle } from '../utils/styles';
 import { Publisher } from '../utils/types';
 import { css } from '@emotion/css';
 import TrendingPagesSkeleton from './skeletons/TrendingPagesSkeleton';
+import SectionHeader from '../partials/SectionHeader';
 
 type Props = {
 	publishers?: Publisher[];
 };
 const TrendingPages = ({ publishers }: Props) => {
 	return (
-		<>
-			<div
-				className={css`
-					display: flex;
-					justify-content: space-between;
-					align-items: center;
-					margin: 10px 0;
-				`}>
-				<SectionHeaderStyle>Trending Pages</SectionHeaderStyle>
-				<StyledLink text="See More" href="/" />
-			</div>
+		<SectionWrapperStyle>
+			<SectionHeader headerText="Trending Pages" showSeeMoreText />
 			<div
 				className={css`
 					display: flex;
 					flex-direction: row;
 					justify-content: space-between;
-					gap: 20px;
 					width: 100%;
 					padding: 0 20px;
 				`}>
@@ -70,7 +60,7 @@ const TrendingPages = ({ publishers }: Props) => {
 						</div>
 					))}
 			</div>
-		</>
+		</SectionWrapperStyle>
 	);
 };
 export default TrendingPages;

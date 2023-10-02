@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { css } from '@emotion/css';
 
 type Props = {
-	text: string;
+	text?: string;
 	href: string;
 };
 const StyledLink = ({ text, href }: Props) => {
@@ -18,7 +18,7 @@ const StyledLink = ({ text, href }: Props) => {
 					text-decoration: underline;
 				}
 			`}>
-			{`${text} →`}
+			{text ? `${text} →` : `→`}
 		</Link>
 	);
 };
