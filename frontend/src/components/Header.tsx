@@ -30,10 +30,18 @@ const Header = () => {
 				/>
 			</Link>
 			<HeaderMenuStyle>
-				<li>Stories</li>
-				<li>Creator</li>
-				<li>Community</li>
-				<li>Subscribe</li>
+				<li>
+					<Link to={'/'}>Stories</Link>
+				</li>
+				<li>
+					<Link to={'/'}>Creators</Link>
+				</li>
+				<li>
+					<Link to={'/'}>Community</Link>
+				</li>
+				<li>
+					<Link to={'/'}>Subscribe</Link>
+				</li>
 			</HeaderMenuStyle>
 		</HeaderStyle>
 	);

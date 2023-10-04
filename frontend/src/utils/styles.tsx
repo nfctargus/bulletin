@@ -18,11 +18,15 @@ export const HeaderMenuStyle = styled.ul`
 	list-style: none;
 	color: #1f1f1f;
 	font-size: 16px;
-	padding: 10px;
-
+	padding: 0 5px;
+	a {
+		text-decoration: none;
+	}
 	li {
-		padding: 10px 15px;
-		border-radius: 3px;
+		padding: 15px 15px;
+		margin: 0;
+		height: 100%;
+		border-radius: 5px;
 		&:hover {
 			background: #ccc;
 			transition: all 0.1s ease;
