@@ -52,7 +52,7 @@ const EditorPick = ({ articles, getPublisher }: Props) => {
 						`}>
 						<PublisherNameAndDate publisherName={getPublisher(articles[0].publisher)?.name} datePublished={articles[0].publishedAt} publisherLogoUrl={getPublisher(articles[0].publisher)?.logoUrl} logoSize="14px" fontSize="13px" fontColor="#f5f5f5" />
 						<ArticleTitle flexGrow title={articles[0].title} fontSize="18px" truncAt={100} fontColor="#f5f5f5" />
-						<ArticleDescription description={articles[0].description} truncAt={185} fontSize="15px" fontColor="#f5f5f5" />
+						<ArticleDescription description={articles[0].articleSections[0].text} truncAt={185} fontSize="15px" fontColor="#f5f5f5" />
 						<ArticleCategoryReadTime articleCategory={articles[0].category} articleReadTime={articles[0].readTime} fontSize="13px" fontColor="#f5f5f5" />
 					</div>
 				</div>

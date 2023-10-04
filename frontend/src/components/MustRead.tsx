@@ -62,7 +62,7 @@ const MustRead = ({ articles, getPublisher }: Props) => {
 							`}>
 							<PublisherNameAndDate publisherName={getPublisher(articles[0].publisher)?.name} datePublished={articles[0].publishedAt} publisherLogoUrl={getPublisher(articles[0].publisher)?.logoUrl} logoSize="12px" fontSize="11px" />
 							<ArticleTitle flexGrow title={articles[0].title} fontSize="16px" truncAt={55} />
-							<ArticleDescription description={articles[0].description} truncAt={100} fontSize="13px" />
+							<ArticleDescription description={articles[0].articleSections[0].text} truncAt={100} fontSize="13px" />
 							<ArticleCategoryReadTime articleCategory={articles[0].category} articleReadTime={articles[0].readTime} fontSize="11px" />
 						</div>
 					</Link>
@@ -102,7 +102,7 @@ const MustRead = ({ articles, getPublisher }: Props) => {
 							`}>
 							<PublisherNameAndDate publisherName={getPublisher(articles[1].publisher)?.name} datePublished={articles[1].publishedAt} publisherLogoUrl={getPublisher(articles[1].publisher)?.logoUrl} logoSize="12px" fontSize="11px" fontColor="#f5f5f5" />
 							<ArticleTitle flexGrow title={articles[1].title} fontSize="16px" truncAt={100} fontColor="#f5f5f5" />
-							<ArticleDescription description={articles[1].description} truncAt={185} fontSize="13px" fontColor="#f5f5f5" />
+							<ArticleDescription description={articles[1].articleSections[0].text} truncAt={185} fontSize="13px" fontColor="#f5f5f5" />
 							<ArticleCategoryReadTime articleCategory={articles[1].category} articleReadTime={articles[1].readTime} fontSize="11px" fontColor="#f5f5f5" />
 						</div>
 					</div>

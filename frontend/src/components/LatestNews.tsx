@@ -55,8 +55,8 @@ const LatestNews = ({ publishers, articles, getPublisher }: Props) => {
 								alt={article.title}
 							/>
 							<PublisherNameAndDate datePublished={article.publishedAt} publisherName={getPublisher(article.publisher)?.name} fontSize="11px" logoSize="12px" publisherLogoUrl={getPublisher(article.publisher)?.logoUrl} />
-							<ArticleTitle fontSize="16px" title={article.title} truncAt={85} flexGrow />
-							<ArticleDescription description={article.description} truncAt={150} fontSize="13px" />
+							<ArticleTitle fontSize="16px" title={article.title} truncAt={75} flexGrow />
+							<ArticleDescription description={article.articleSections[0].text} truncAt={150} fontSize="13px" />
 							<ArticleCategoryReadTime articleCategory={article.category} articleReadTime={article.readTime} fontSize="11px" />
 						</Link>
 					))}

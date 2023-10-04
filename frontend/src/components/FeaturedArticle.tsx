@@ -6,6 +6,7 @@ import ArticleTitle from '../partials/ArticleTitle';
 import ArticleDescription from '../partials/ArticleDescription';
 import ArticleCategoryReadTime from '../partials/ArticleCategoryReadTime';
 import { SectionWrapperStyle } from '../utils/styles';
+import { Link } from 'react-router-dom';
 
 type Props = {
 	getPublisher: (id: number) => Publisher | undefined;
@@ -46,15 +47,22 @@ const FeaturedArticle = ({ getPublisher, getArticle }: Props) => {
 			</div>
 			{!article && <HeroSkeleton />}
 			{article && (
-				<div
+				<Link
+					key={article.id}
+					to={`/articles/${article.id}`}
 					className={css`
 						display: flex;
 						flex-direction: row;
 						justify-content: space-around;
 						align-items: center;
-						height: 50%;
 						width: 100%;
 						margin-top: 25px;
+						text-decoration: none;
+						padding: 5px;
+						border-radius: 5px;
+						&:hover {
+							background-color: #f9f9f9f4;
+						}
 					`}>
 					<div
 						className={css`
@@ -82,10 +90,10 @@ const FeaturedArticle = ({ getPublisher, getArticle }: Props) => {
 						`}>
 						<PublisherNameAndDate publisherName={publisher?.name} datePublished={article.publishedAt} publisherLogoUrl={publisher?.logoUrl} logoSize="24px" fontSize="16px" />
 						<ArticleTitle flexGrow title={article.title} fontSize="32px" />
-						<ArticleDescription description={article.description} truncAt={200} />
+						<ArticleDescription description={article.articleSections![0].text} truncAt={200} />
 						<ArticleCategoryReadTime articleCategory={article.category} articleReadTime={article.readTime} />
 					</div>
-				</div>
+				</Link>
 			)}
 		</SectionWrapperStyle>
 	);
