@@ -3,11 +3,11 @@ import { Publisher } from '../utils/types';
 import { css } from '@emotion/css';
 import TrendingPagesSkeleton from './skeletons/TrendingPagesSkeleton';
 import SectionHeader from '../partials/SectionHeader';
+import { useSelector } from 'react-redux';
+import { RootState } from '../utils/store';
 
-type Props = {
-	publishers?: Publisher[];
-};
-const TrendingPages = ({ publishers }: Props) => {
+const TrendingPages = () => {
+	const publishers = useSelector((state: RootState) => state.publisher.publishers);
 	return (
 		<SectionWrapperStyle>
 			<SectionHeader headerText="Trending Pages" showSeeMoreText />

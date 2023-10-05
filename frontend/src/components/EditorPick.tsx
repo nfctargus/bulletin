@@ -1,21 +1,25 @@
 import { css } from '@emotion/css';
 import SectionHeader from '../partials/SectionHeader';
 import { SectionWrapperStyle } from '../utils/styles';
-import { Article, Publisher } from '../utils/types';
 import { Link } from 'react-router-dom';
 import ArticleCategoryReadTime from '../partials/ArticleCategoryReadTime';
 import ArticleDescription from '../partials/ArticleDescription';
 import ArticleTitle from '../partials/ArticleTitle';
 import PublisherNameAndDate from '../partials/PublisherNameAndDate';
-type Props = {
-	articles?: Article[];
-	getPublisher: (id: number) => Publisher | undefined;
-};
-const EditorPick = ({ articles, getPublisher }: Props) => {
+import { useSelector } from 'react-redux';
+import { RootState } from '../utils/store';
+import { selectArticlesByFlag } from '../utils/store/articles/articleSlice';
+
+const EditorPick = () => {
+	const articles = useSelector((state: RootState) => selectArticlesByFlag(state, 'editors-pick'));
+	const publishers = useSelector((state: RootState) => state.publisher.publishers);
+	const getPublisher = (id: number) => {
+		return publishers.find((p) => p.id === id);
+	};
 	return (
 		<SectionWrapperStyle>
 			<SectionHeader headerText="Editors Pick" showSeeMoreText />
-			{articles && (
+			{articles[0] && (
 				<div
 					className={css`
 						position: relative;

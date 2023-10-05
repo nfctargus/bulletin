@@ -1,4 +1,3 @@
-import { Publisher, Article } from '../utils/types';
 import { css } from '@emotion/css';
 import HeroSkeleton from './skeletons/HeroSkeleton';
 import PublisherNameAndDate from '../partials/PublisherNameAndDate';
@@ -7,14 +6,19 @@ import ArticleDescription from '../partials/ArticleDescription';
 import ArticleCategoryReadTime from '../partials/ArticleCategoryReadTime';
 import { SectionWrapperStyle } from '../utils/styles';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectArticleById } from '../utils/store/articles/articleSlice';
+import { RootState } from '../utils/store';
 
 type Props = {
-	getPublisher: (id: number) => Publisher | undefined;
-	getArticle: (id: number) => Article | undefined;
+	articleId: number;
 };
-const FeaturedArticle = ({ getPublisher, getArticle }: Props) => {
-	const article = getArticle(50006);
-	const publisher = getPublisher(1010);
+const FeaturedArticle = ({ articleId }: Props) => {
+	const article = useSelector((state: RootState) => selectArticleById(state, articleId));
+	const publishers = useSelector((state: RootState) => state.publisher.publishers);
+	const getPublisher = (id: number) => {
+		return publishers.find((p) => p.id === id);
+	};
 	return (
 		<SectionWrapperStyle>
 			<div
@@ -88,7 +92,7 @@ const FeaturedArticle = ({ getPublisher, getArticle }: Props) => {
 							padding: 0 20px;
 							width: 50%;
 						`}>
-						<PublisherNameAndDate publisherName={publisher?.name} datePublished={article.publishedAt} publisherLogoUrl={publisher?.logoUrl} logoSize="24px" fontSize="16px" />
+						<PublisherNameAndDate publisherName={getPublisher(article.publisher)?.name} datePublished={article.publishedAt} publisherLogoUrl={getPublisher(article.publisher)?.logoUrl} logoSize="24px" fontSize="16px" />
 						<ArticleTitle flexGrow title={article.title} fontSize="32px" />
 						<ArticleDescription description={article.articleSections![0].text} truncAt={200} />
 						<ArticleCategoryReadTime articleCategory={article.category} articleReadTime={article.readTime} />

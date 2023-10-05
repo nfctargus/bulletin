@@ -8,13 +8,15 @@ import ArticleTitle from '../partials/ArticleTitle';
 import ArticleDescription from '../partials/ArticleDescription';
 import ArticleCategoryReadTime from '../partials/ArticleCategoryReadTime';
 import SectionHeader from '../partials/SectionHeader';
+import { useSelector } from 'react-redux';
+import { RootState } from '../utils/store';
 
-type Props = {
-	publishers: Publisher[];
-	articles: Article[];
-	getPublisher: (id: number) => Publisher | undefined;
-};
-const LatestNews = ({ publishers, articles, getPublisher }: Props) => {
+const LatestNews = () => {
+	const articles = useSelector((state: RootState) => state.article.articles);
+	const publishers = useSelector((state: RootState) => state.publisher.publishers);
+	const getPublisher = (id: number) => {
+		return publishers.find((p) => p.id === id);
+	};
 	return (
 		<SectionWrapperStyle>
 			<SectionHeader headerText="Latest News" showSeeMoreText />

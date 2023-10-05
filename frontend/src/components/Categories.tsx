@@ -6,11 +6,20 @@ import { Link } from 'react-router-dom';
 import PublisherNameAndDate from '../partials/PublisherNameAndDate';
 import ArticleTitle from '../partials/ArticleTitle';
 import ArticleCategoryReadTime from '../partials/ArticleCategoryReadTime';
+import { useSelector } from 'react-redux';
+import { RootState } from '../utils/store';
+import { selectArticlesByCategory } from '../utils/store/articles/articleSlice';
 type Props = {
-	getArticles: (category: string) => Article[] | undefined;
-	getPublisher: (id: number) => Publisher | undefined;
+	category1: string;
+	category2: string;
 };
-const Categories = ({ getArticles, getPublisher }: Props) => {
+const Categories = ({ category1, category2 }: Props) => {
+	const articlesCategory1 = useSelector((state: RootState) => selectArticlesByCategory(state, category1));
+	const articlesCategory2 = useSelector((state: RootState) => selectArticlesByCategory(state, category2));
+	const publishers = useSelector((state: RootState) => state.publisher.publishers);
+	const getPublisher = (id: number) => {
+		return publishers.find((p) => p.id === id);
+	};
 	return (
 		<SectionWrapperStyle>
 			<div
@@ -35,9 +44,8 @@ const Categories = ({ getArticles, getPublisher }: Props) => {
 						width: 50%;
 						display: flex;
 					`}>
-					{getArticles('Business')
-						?.slice(0, 2)
-						.map((article) => (
+					{articlesCategory1 &&
+						articlesCategory1.slice(0, 2).map((article) => (
 							<Link
 								key={article.id}
 								to={`/articles/${article.id}`}
@@ -76,9 +84,8 @@ const Categories = ({ getArticles, getPublisher }: Props) => {
 						width: 50%;
 						display: flex;
 					`}>
-					{getArticles('Sport')
-						?.slice(1, 3)
-						.map((article) => (
+					{articlesCategory2 &&
+						articlesCategory2.slice(1, 3).map((article) => (
 							<Link
 								key={article.id}
 								to={`/articles/${article.id}`}
