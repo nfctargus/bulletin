@@ -17,7 +17,7 @@ const App = () => {
 		setTimeout(() => {
 			dispatch(getArticlesThunk());
 			dispatch(getPublishersThunk());
-		}, 1000);
+		}, 2000);
 	}, []);
 
 	return (

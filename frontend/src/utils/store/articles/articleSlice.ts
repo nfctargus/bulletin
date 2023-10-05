@@ -1,21 +1,31 @@
-import { createSelector, createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSelector, createSlice } from '@reduxjs/toolkit';
 import { Article } from '../../types';
 import { getArticlesThunk } from './articleThunk';
 import { RootState } from '..';
 
 export interface ArticleState {
 	articles: Article[];
+	loading: boolean;
 }
 const initialState: ArticleState = {
 	articles: [],
+	loading: true,
 };
 export const articleSlice = createSlice({
 	name: 'articles',
 	initialState,
-	reducers: {},
+	reducers: {
+		setLoading: (state, action: PayloadAction<boolean>) => {
+			state.loading = action.payload;
+		},
+	},
 	extraReducers(builder) {
+		builder.addCase(getArticlesThunk.pending, (state, action) => {
+			state.loading = true;
+		});
 		builder.addCase(getArticlesThunk.fulfilled, (state, action) => {
 			state.articles = action.payload.data;
+			state.loading = false;
 		});
 	},
 });

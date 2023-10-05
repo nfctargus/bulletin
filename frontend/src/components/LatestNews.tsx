@@ -1,5 +1,4 @@
 import { css } from '@emotion/css';
-import { Publisher, Article } from '../utils/types';
 import { SectionWrapperStyle } from '../utils/styles';
 import { Link } from 'react-router-dom';
 import LatestNewsSkeleton from './skeletons/LatestNewsSkeleton';
@@ -14,14 +13,16 @@ import { RootState } from '../utils/store';
 const LatestNews = () => {
 	const articles = useSelector((state: RootState) => state.article.articles);
 	const publishers = useSelector((state: RootState) => state.publisher.publishers);
+	const loadingPublishers = useSelector((state: RootState) => state.publisher.loading);
+	const loadingArticles = useSelector((state: RootState) => state.article.loading);
 	const getPublisher = (id: number) => {
 		return publishers.find((p) => p.id === id);
 	};
 	return (
 		<SectionWrapperStyle>
 			<SectionHeader headerText="Latest News" showSeeMoreText />
-			{!articles && <LatestNewsSkeleton />}
-			{articles && (
+			{(loadingPublishers || loadingArticles) && <LatestNewsSkeleton />}
+			{(!loadingPublishers || !loadingArticles) && (
 				<div
 					className={css`
 						display: flex;

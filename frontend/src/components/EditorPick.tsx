@@ -9,17 +9,21 @@ import PublisherNameAndDate from '../partials/PublisherNameAndDate';
 import { useSelector } from 'react-redux';
 import { RootState } from '../utils/store';
 import { selectArticlesByFlag } from '../utils/store/articles/articleSlice';
+import EditorPickSkeleton from './skeletons/EditorPickSkeleton';
 
 const EditorPick = () => {
 	const articles = useSelector((state: RootState) => selectArticlesByFlag(state, 'editors-pick'));
 	const publishers = useSelector((state: RootState) => state.publisher.publishers);
+	const loadingPublishers = useSelector((state: RootState) => state.publisher.loading);
+	const loadingArticles = useSelector((state: RootState) => state.article.loading);
 	const getPublisher = (id: number) => {
 		return publishers.find((p) => p.id === id);
 	};
 	return (
 		<SectionWrapperStyle>
 			<SectionHeader headerText="Editors Pick" showSeeMoreText />
-			{articles[0] && (
+			{(loadingPublishers || loadingArticles) && <EditorPickSkeleton />}
+			{(!loadingPublishers || !loadingArticles) && (
 				<div
 					className={css`
 						position: relative;
@@ -36,7 +40,6 @@ const EditorPick = () => {
 							className={css`
 								max-height: 100%;
 								width: 100%;
-
 								object-fit: cover;
 								border-radius: 5px;
 							`}
@@ -67,12 +70,7 @@ const EditorPick = () => {
 					flex-direction: row;
 				`}>
 				{articles && (
-					<div
-						className={css`
-							display: flex;
-							flex-direction: row;
-							gap: 18px;
-						`}>
+					<>
 						{articles.slice(1, 5).map((article) => (
 							<Link
 								key={article.id}
@@ -106,7 +104,7 @@ const EditorPick = () => {
 								<ArticleCategoryReadTime articleCategory={article.category} articleReadTime={article.readTime} fontSize="11px" />
 							</Link>
 						))}
-					</div>
+					</>
 				)}
 			</div>
 		</SectionWrapperStyle>

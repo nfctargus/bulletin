@@ -8,6 +8,7 @@ import { RootState } from '../utils/store';
 
 const TrendingPages = () => {
 	const publishers = useSelector((state: RootState) => state.publisher.publishers);
+	const loadingPublishers = useSelector((state: RootState) => state.publisher.loading);
 	return (
 		<SectionWrapperStyle>
 			<SectionHeader headerText="Trending Pages" showSeeMoreText />
@@ -19,8 +20,8 @@ const TrendingPages = () => {
 					width: 100%;
 					padding: 0 20px;
 				`}>
-				{!publishers && <TrendingPagesSkeleton numRows={10} />}
-				{publishers &&
+				{loadingPublishers && <TrendingPagesSkeleton numRows={10} />}
+				{!loadingPublishers &&
 					publishers.slice(0, 10).map((publisher: Publisher) => (
 						<div
 							className={css`

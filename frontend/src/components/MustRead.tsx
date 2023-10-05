@@ -9,10 +9,13 @@ import ArticleCategoryReadTime from '../partials/ArticleCategoryReadTime';
 import { useSelector } from 'react-redux';
 import { RootState } from '../utils/store';
 import { selectArticlesByFlag } from '../utils/store/articles/articleSlice';
+import MustReadSkeleton from './skeletons/MustReadSkeleton';
 
 const MustRead = () => {
 	const articles = useSelector((state: RootState) => selectArticlesByFlag(state, 'must-read'));
 	const publishers = useSelector((state: RootState) => state.publisher.publishers);
+	const loadingPublishers = useSelector((state: RootState) => state.publisher.loading);
+	const loadingArticles = useSelector((state: RootState) => state.article.loading);
 	const getPublisher = (id: number) => {
 		return publishers.find((p) => p.id === id);
 	};
@@ -26,7 +29,8 @@ const MustRead = () => {
 					width: 100%;
 					height: 32vh;
 				`}>
-				{articles &&
+				{(loadingPublishers || loadingArticles) && <MustReadSkeleton />}
+				{(!loadingPublishers || !loadingArticles) &&
 					articles.slice(0, 4).map((article, index) => (
 						<>
 							{index === 0 && (
