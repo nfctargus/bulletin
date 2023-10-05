@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Article, Publisher } from './types';
+import { Article, Comment, Publisher } from './types';
 
 const API_URL = 'http://localhost:3001';
 
@@ -12,3 +12,5 @@ export const getArticles = () => axiosClient.get<Article[]>(`${API_URL}/articles
 export const getMustReadArticles = () => axiosClient.get<Article[]>(`${API_URL}/articles-must-read`);
 export const getArticlesByCategory = (category: string) => axiosClient.get<Article[]>(`${API_URL}/articles/categories/${category}`);
 export const getArticleById = (id: number) => axiosClient.get<Article>(`${API_URL}/articles/${id}`);
+
+export const getComments = () => axiosClient.get<Comment[]>(`${API_URL}/comments`);

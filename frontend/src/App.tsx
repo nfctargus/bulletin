@@ -10,6 +10,7 @@ import { useDispatch } from 'react-redux';
 import { AppDispatch } from './utils/store';
 import { getArticlesThunk } from './utils/store/articles/articleThunk';
 import { getPublishersThunk } from './utils/store/publishers/publisherThunk';
+import { getCommentsThunk } from './utils/store/comments/commentThunk';
 
 const App = () => {
 	const dispatch = useDispatch<AppDispatch>();
@@ -17,6 +18,7 @@ const App = () => {
 		setTimeout(() => {
 			dispatch(getArticlesThunk());
 			dispatch(getPublishersThunk());
+			dispatch(getCommentsThunk());
 		}, 2000);
 	}, []);
 

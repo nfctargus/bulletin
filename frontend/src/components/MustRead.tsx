@@ -10,7 +10,7 @@ import { useSelector } from 'react-redux';
 import { RootState } from '../utils/store';
 import { selectArticlesByFlag } from '../utils/store/articles/articleSlice';
 import MustReadSkeleton from './skeletons/MustReadSkeleton';
-
+import React from 'react';
 const MustRead = () => {
 	const articles = useSelector((state: RootState) => selectArticlesByFlag(state, 'must-read'));
 	const publishers = useSelector((state: RootState) => state.publisher.publishers);
@@ -32,9 +32,10 @@ const MustRead = () => {
 				{(loadingPublishers || loadingArticles) && <MustReadSkeleton />}
 				{(!loadingPublishers || !loadingArticles) &&
 					articles.slice(0, 4).map((article, index) => (
-						<>
+						<React.Fragment key={index}>
 							{index === 0 && (
 								<Link
+									key={index}
 									to={`/articles/${article.id}`}
 									className={css`
 										width: 25%;
@@ -78,6 +79,7 @@ const MustRead = () => {
 							)}
 							{index === 1 && (
 								<div
+									key={index}
 									className={css`
 										position: relative;
 										text-align: center;
@@ -121,6 +123,7 @@ const MustRead = () => {
 							)}
 							{index === 2 && (
 								<div
+									key={index === 2 ? index : index + 1}
 									className={css`
 										width: 20%;
 										border-radius: 5px;
@@ -193,7 +196,7 @@ const MustRead = () => {
 									</Link>
 								</div>
 							)}
-						</>
+						</React.Fragment>
 					))}
 			</div>
 		</SectionWrapperStyle>

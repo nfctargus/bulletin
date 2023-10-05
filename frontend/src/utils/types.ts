@@ -31,3 +31,10 @@ export type Intention = {
 	length: number;
 	link?: string;
 };
+export type Comment = {
+	id: number;
+	article: number;
+	author: string;
+	text: string;
+	publishedAt: string;
+};

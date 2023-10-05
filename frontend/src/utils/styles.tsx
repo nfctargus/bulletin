@@ -42,7 +42,7 @@ export const FooterSocialLinksListStyle = styled.ul`
 	padding: 10px 0;
 	.socialIcons {
 		background-color: #e9353b;
-		fill: #fff;
+		fill: #f5f5f5;
 		border-radius: 50%;
 		padding: 2px;
 		height: 60%;
@@ -60,7 +60,7 @@ export const FooterSocialLinksListStyle = styled.ul`
 		cursor: pointer;
 		.socialIcons {
 			fill: #e9353b;
-			background: #fff;
+			background: #f5f5f5;
 			transition: all 0.3s linear;
 		}
 	}
@@ -168,5 +168,18 @@ export const ArticleSectionImageStyle = styled.div`
 		max-width: 65%;
 		font-size: 14px;
 		margin-right: auto;
+	}
+`;
+export const LoginRegisterButton = styled.button`
+	padding: 17px 24px;
+	background-color: #e9353b;
+	color: #f5f5f5;
+	border-radius: 5px;
+	border: none;
+	width: fit-content;
+	cursor: pointer;
+	:hover {
+		background-color: #971d21;
+		transition: all 0.2s ease;
 	}
 `;

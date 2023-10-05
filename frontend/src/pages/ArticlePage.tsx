@@ -1,23 +1,27 @@
-import { useEffect, useState } from 'react';
-import { getArticleById } from '../utils/api';
 import { useParams } from 'react-router-dom';
-import { Article } from '../utils/types';
 import Layout from '../components/Layout';
 import formatRelative from 'date-fns/format';
 import { css } from '@emotion/css';
 import { formatArticleSections } from '../utils/helpers';
+import { useSelector } from 'react-redux';
+import { RootState } from '../utils/store';
+import { selectArticleById } from '../utils/store/articles/articleSlice';
+import ArticleSkeleton from '../components/skeletons/ArticleSkeleton';
+import { selectCommentByArticleId } from '../utils/store/comments/commentSlice';
+import ArticleComment from '../partials/ArticleComment';
+import { LoginRegisterButton } from '../utils/styles';
 
 const ArticlePage = () => {
-	const [article, setArticle] = useState<Article>();
 	const { id } = useParams();
-	useEffect(() => {
-		getArticleById(parseInt(id!)).then((a) => {
-			setArticle(a.data);
-		});
-	}, [id]);
+	const article = useSelector((state: RootState) => selectArticleById(state, parseInt(id!)));
+	const loadingArticles = useSelector((state: RootState) => state.article.loading);
+	const loadingComments = useSelector((state: RootState) => state.comment.loading);
+	const comments = useSelector((state: RootState) => selectCommentByArticleId(state, parseInt(id!)));
+
 	return (
 		<Layout>
-			{article && (
+			{loadingArticles && <ArticleSkeleton />}
+			{!loadingArticles && (
 				<div
 					className={css`
 						display: flex;
@@ -40,9 +44,58 @@ const ArticlePage = () => {
 						`}>
 						{article?.author} {formatRelative(new Date(article!.publishedAt), 'iii, d MMMM yyyy hh:mmaaa')}
 					</div>
-					<div>{article.articleSections?.map((section) => formatArticleSections(section))}</div>
+					<div>{article && article.articleSections && article.articleSections?.map((section) => formatArticleSections(section))}</div>
 				</div>
 			)}
+			{loadingComments && <div>Loading Comments</div>}
+			<div
+				className={css`
+					border-top: 1px solid #000;
+					width: 100%;
+					padding-top: 10px;
+				`}>
+				<div
+					className={css`
+						width: 100%;
+						display: flex;
+						flex-direction: row;
+					`}>
+					<div
+						className={css`
+							padding: 48px 0;
+							display: flex;
+							gap: 10px;
+							width: 70%;
+							background-color: #f5f5f5;
+							border-top-left-radius: 5px;
+							border-bottom-left-radius: 5px;
+							flex-direction: column;
+							align-items: center;
+							font-size: 24px;
+							font-weight: 600;
+						`}>
+						Register and have your say.<LoginRegisterButton>Register to comment</LoginRegisterButton>
+					</div>
+					<div
+						className={css`
+							padding: 48px 0;
+							display: flex;
+							gap: 10px;
+							width: 30%;
+							background-color: #292929;
+							color: #f5f5f5;
+							border-top-right-radius: 5px;
+							border-bottom-right-radius: 5px;
+							flex-direction: column;
+							align-items: center;
+							font-size: 18px;
+						`}>
+						Already have an account?<LoginRegisterButton>Log in</LoginRegisterButton>
+					</div>
+				</div>
+
+				{!loadingComments && comments.map((comment) => <ArticleComment comment={comment} />)}
+			</div>
 		</Layout>
 	);
 };

@@ -33,11 +33,8 @@ const formatIntentionKind = (intention: Intention, splitEnd: number, text: strin
 	}
 };
 const formatIntention = (intentions: Intention[], text: string) => {
-	if (!text) return null;
-	const sorted = intentions.sort((a: Intention, b: Intention) => {
-		if (a.index < b.index) return -1;
-		else return 1;
-	});
+	var int = [...intentions];
+	var sorted = int.sort((a: Intention, b: Intention) => a.index - b.index);
 	const styledIntention = sorted.map((intention, index, elements) => {
 		let splitEnd = intention.index + intention.length;
 		var next = elements[index + 1];
@@ -58,7 +55,7 @@ export const formatArticleSections = (section: ArticleSection) => {
 	switch (kind) {
 		case 'text': {
 			if (intentions && intentions.length > 0) {
-				return <ArticleSectionStyle>{formatIntention(intentions, text!)}</ArticleSectionStyle>;
+				return <ArticleSectionStyle>{text && formatIntention(intentions, text)}</ArticleSectionStyle>;
 			} else return <ArticleSectionStyle>{text}</ArticleSectionStyle>;
 		}
 		case 'heading': {
@@ -80,7 +77,7 @@ export const formatArticleSections = (section: ArticleSection) => {
 			return (
 				<ArticleSectionImageStyle>
 					<img src={section.url} alt={section.text} />
-					{intentions && intentions.length > 0 ? <div>{formatIntention(intentions, text!)}</div> : <div>{section.text}</div>}
+					{intentions && intentions.length > 0 ? <div>{text && formatIntention(intentions, text)}</div> : <div>{section.text}</div>}
 				</ArticleSectionImageStyle>
 			);
 		}

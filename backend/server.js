@@ -1,6 +1,7 @@
 import express from 'express';
 import { publishers } from './data/publishers.js';
 import { articles } from './data/articles.js';
+import { comments } from './data/comments.js';
 import cors from 'cors';
 
 const app = express();
@@ -15,6 +16,9 @@ app.use(
 );
 app.get('/publishers', (req, res) => {
 	res.send(publishers);
+});
+app.get('/comments', (req, res) => {
+	res.send(comments);
 });
 app.get('/publishers/:id', (req, res) => {
 	const { id } = req.params;
