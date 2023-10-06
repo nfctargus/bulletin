@@ -31,16 +31,16 @@ const Header = () => {
 			</Link>
 			<HeaderMenuStyle>
 				<li>
-					<Link to={'/'}>Stories</Link>
+					<Link to={'/'}>News</Link>
 				</li>
 				<li>
-					<Link to={'/'}>Creators</Link>
+					<Link to={'/categories/sport'}>Sport</Link>
 				</li>
 				<li>
-					<Link to={'/'}>Community</Link>
+					<Link to={'/categories/business'}>Business</Link>
 				</li>
 				<li>
-					<Link to={'/'}>Subscribe</Link>
+					<Link to={'/categories/technology'}>Technology</Link>
 				</li>
 			</HeaderMenuStyle>
 		</HeaderStyle>

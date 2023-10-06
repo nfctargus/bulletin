@@ -40,7 +40,7 @@ export const selectArticlesByFlag = createSelector([selectArticles, selectArticl
 	return articles.filter((article) => article.flags.find((f) => f === flag));
 });
 export const selectArticlesByCategory = createSelector([selectArticles, selectArticleCategory], (articles, category) => {
-	return articles.filter((article) => article.category === category);
+	return articles.filter((article) => article.category.toLowerCase() === category.toLowerCase());
 });
 export const {} = articleSlice.actions;
 export default articleSlice.reducer;

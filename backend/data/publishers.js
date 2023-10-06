@@ -5,7 +5,7 @@ export const publishers = [
 		name: 'Australian Financial Review',
 		description: 'The Australian Financial Review reports the latest news from business, finance, investment and politics, updated in real time. It has a reputation for independent, award-winning journalism and is essential reading for the business and investor community.',
 		logoUrl: 'https://platinumoutsourcing.com.au/wp-content/uploads/2022/11/AFR.png',
-		category: 'finance',
+		category: 'Finance',
 	},
 	{
 		id: 1001,
@@ -13,7 +13,7 @@ export const publishers = [
 		name: 'The New Daily',
 		description: 'Latest news headlines locally from Australia and the World. Get breaking news, politics, finance, entertainment, lifestyle, sport, weather and more.',
 		logoUrl: 'https://pbs.twimg.com/profile_images/539549629847584769/3to5Was6_400x400.png',
-		category: 'business',
+		category: 'Business',
 	},
 	{
 		id: 1002,
@@ -21,7 +21,7 @@ export const publishers = [
 		name: 'Bloomberg',
 		description: 'Bloomberg delivers business and markets news, data, analysis, and video to the world, featuring stories from Businessweek and Bloomberg News.',
 		logoUrl: 'https://assets.bbhub.io/media/sites/21/2019/06/Capture.png',
-		category: 'business',
+		category: 'Business',
 	},
 	{
 		id: 1003,
@@ -29,7 +29,7 @@ export const publishers = [
 		name: 'Business Insider',
 		description: 'Business Insider is a fast-growing business site with deep financial, media, tech, and other industry verticals. Launched in 2007, the site is now the largest business news site on the web.',
 		logoUrl: 'https://i.insider.com/628273a89147a30018b48c44?width=500&format=jpeg',
-		category: 'business',
+		category: 'Business',
 	},
 	{
 		id: 1004,
@@ -37,7 +37,7 @@ export const publishers = [
 		name: 'Financial Post',
 		description: 'Find the latest happenings in the Canadian Financial Sector and stay up to date with changing trends in Business Markets. Read trading and investing advice from professionals.',
 		logoUrl: 'https://d3g9pb5nvr3u7.cloudfront.net/sites/532b3a511cb7afd642e0e1c0/1693291516/256.jpg',
-		category: 'finance',
+		category: 'Finance',
 	},
 	{
 		id: 1005,
@@ -45,7 +45,7 @@ export const publishers = [
 		name: 'The Guardian',
 		description: "Latest US news, world news, sports, business, opinion, analysis and reviews from the Guardian, the world's leading liberal voice.",
 		logoUrl: 'https://i.pinimg.com/originals/3e/ab/ae/3eabae6b843c200be67840755b34a19c.png',
-		category: 'business',
+		category: 'Business',
 	},
 	{
 		id: 1006,
@@ -53,7 +53,7 @@ export const publishers = [
 		name: 'Fortune',
 		description: 'Fortune 500 Daily and Breaking Business News',
 		logoUrl: 'https://media.licdn.com/dms/image/C560BAQFntQPegYt40Q/company-logo_100_100/0/1656617167690?e=2147483647&v=beta&t=n8b-9lgZ42Qw8AmOn2lTeGwPyrTs4vI21mgoM4aft4Q',
-		category: 'business',
+		category: 'Business',
 	},
 	{
 		id: 1007,
@@ -61,7 +61,7 @@ export const publishers = [
 		name: 'The Wall Street Journal',
 		description: 'WSJ online coverage of breaking news and current headlines from the US and around the world. Top stories, photos, videos, detailed analysis and in-depth reporting.',
 		logoUrl: 'https://s.wsj.net/img/meta/wsj-social-share.png',
-		category: 'business',
+		category: 'Business',
 	},
 	{
 		id: 1008,
@@ -69,7 +69,7 @@ export const publishers = [
 		name: 'The Australian',
 		description: 'The Australian brings you the latest Australian news as well as latest politics, sports, entertainment, technology, lifestyle and breaking world news.',
 		logoUrl: 'https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-thumbnail/s3/0005/7640/brand.gif?itok=M5OSDtsS',
-		category: 'sports',
+		category: 'Sports',
 	},
 	{
 		id: 1009,
@@ -77,7 +77,7 @@ export const publishers = [
 		name: 'ABC News',
 		description: 'The Australian brings you the latest Australian news as well as latest politics, sports, entertainment, technology, lifestyle and breaking world news.',
 		logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/2/2f/ABC-2021-LOGO.svg',
-		category: 'business',
+		category: 'Business',
 	},
 	{
 		id: 1010,
@@ -85,7 +85,7 @@ export const publishers = [
 		name: 'Netflix',
 		description: 'Watch Netflix movies & TV shows online or stream right to your smart TV, game console, PC, Mac, mobile, tablet and more.',
 		logoUrl: 'https://images.ctfassets.net/4cd45et68cgf/Rx83JoRDMkYNlMC9MKzcB/2b14d5a59fc3937afd3f03191e19502d/Netflix-Symbol.png?w=700&h=456',
-		category: 'entertainment',
+		category: 'Entertainment',
 	},
 	{
 		id: 1011,
@@ -93,7 +93,7 @@ export const publishers = [
 		name: 'CNN',
 		description: 'View the latest news and breaking news today for U.S., world, weather, entertainment, politics and health at CNN.com.',
 		logoUrl: 'https://yt3.googleusercontent.com/n5DRh94eycw6xGcOKTn6LKQwztTwaw24fXPniFTXA3VPgwJaiOFdBwJNtXRHYUf7OdEAk9upwH0=s900-c-k-c0x00ffffff-no-rj',
-		category: 'business',
+		category: 'Business',
 	},
 	{
 		id: 1012,
@@ -101,7 +101,7 @@ export const publishers = [
 		name: 'Mac Rumors',
 		description: 'MacRumors is an American website that reports and aggregates Apple Inc.- and Mac-related news, rumors, and information. ',
 		logoUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1dl_HTZ00igfIByO6J0hXC7Y2VvH26i4_xFIk0qVRJRFGtVP0Pg6cI9R8_eindUArTXU&usqp=CAU',
-		category: 'technology',
+		category: 'Technology',
 	},
 	{
 		id: 1013,
@@ -109,7 +109,7 @@ export const publishers = [
 		name: 'BBC News',
 		description: 'Visit BBC News for up-to-the-minute news, breaking news, video, audio and feature stories. BBC News provides trusted World and UK news as well as local and international.',
 		logoUrl: 'https://yt3.googleusercontent.com/y_esGAQOhX4rTpWvrALErAJlFbm_2TIVrvcVfcZny7TuA8dJZgOQcC6KRfd_J5hljFe-foYXj9U=s900-c-k-c0x00ffffff-no-rj',
-		category: 'business',
+		category: 'Business',
 	},
 	{
 		id: 1014,
@@ -117,7 +117,7 @@ export const publishers = [
 		name: 'BBC',
 		description: 'Breaking news, sport, TV, radio and a whole lot more. The BBC informs, educates and entertains - wherever you are, whatever your age.',
 		logoUrl: 'https://ichef.bbci.co.uk/images/ic/1920x1080/p09xtmrp.jpg',
-		category: 'business',
+		category: 'Business',
 	},
 	{
 		id: 1015,
@@ -125,6 +125,6 @@ export const publishers = [
 		name: 'Goal',
 		description: 'The latest football news, live scores, results, rumours, transfers, fixtures, tables and player profiles from around the world, including FIFA World Cup.',
 		logoUrl: 'https://pbs.twimg.com/profile_images/1457725488374374401/rzPwbcxC_400x400.jpg',
-		category: 'sports',
+		category: 'Sports',
 	},
 ];

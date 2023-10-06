@@ -1,18 +1,18 @@
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import { RootState } from '../utils/store';
+import { selectArticlesByFlag } from '../utils/store/articles/articleSlice';
 import { css } from '@emotion/css';
+import Layout from '../components/Layout';
 import PublisherNameAndDate from '../partials/PublisherNameAndDate';
 import ArticleTitle from '../partials/ArticleTitle';
 import ArticleDescription from '../partials/ArticleDescription';
 import ArticleCategoryReadTime from '../partials/ArticleCategoryReadTime';
-import Layout from '../components/Layout';
-import { useSelector } from 'react-redux';
-import { RootState } from '../utils/store';
-import { selectArticlesByCategory } from '../utils/store/articles/articleSlice';
-import SelectedCategorySkeleton from '../components/skeletons/SelectedCategorySkeleton';
 
-const SelectedCategoryPage = () => {
-	const { category } = useParams();
-	const articles = useSelector((state: RootState) => selectArticlesByCategory(state, category!));
+const SelectedFlagPage = () => {
+	const { flag } = useParams();
+	const articles = useSelector((state: RootState) => selectArticlesByFlag(state, flag!));
 	const publishers = useSelector((state: RootState) => state.publisher.publishers);
 	const loadingPublishers = useSelector((state: RootState) => state.publisher.loading);
 	const loadingArticles = useSelector((state: RootState) => state.article.loading);
@@ -26,7 +26,7 @@ const SelectedCategoryPage = () => {
 					text-transform: capitalize;
 					font-family: 'Noto Serif', serif;
 				`}>
-				Latest {category} News
+				{flag}
 			</h1>
 			<div
 				className={css`
@@ -35,7 +35,7 @@ const SelectedCategoryPage = () => {
 					grid-template-columns: 1fr 1fr;
 					gap: 20px 20px;
 				`}>
-				{(loadingPublishers || loadingArticles) && <SelectedCategorySkeleton />}
+				{/* {(loadingPublishers || loadingArticles) && <SelectedCategorySkeleton />} */}
 				{(!loadingPublishers || !loadingArticles) &&
 					articles.map((article) => (
 						<Link
@@ -75,4 +75,5 @@ const SelectedCategoryPage = () => {
 		</Layout>
 	);
 };
-export default SelectedCategoryPage;
+
+export default SelectedFlagPage;

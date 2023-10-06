@@ -11,7 +11,7 @@ const TrendingPages = () => {
 	const loadingPublishers = useSelector((state: RootState) => state.publisher.loading);
 	return (
 		<SectionWrapperStyle>
-			<SectionHeader headerText="Trending Pages" showSeeMoreText />
+			<SectionHeader headerText="Trending Pages" showSeeMoreText href="/pages" />
 			<div
 				className={css`
 					display: flex;

@@ -22,7 +22,7 @@ const MustRead = () => {
 
 	return (
 		<SectionWrapperStyle>
-			<SectionHeader headerText="Must Read" showSeeMoreText />
+			<SectionHeader headerText="Must Read" showSeeMoreText href="/flags/must-read" />
 			<div
 				className={css`
 					display: flex;

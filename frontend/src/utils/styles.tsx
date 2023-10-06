@@ -21,8 +21,6 @@ export const HeaderMenuStyle = styled.ul`
 	padding: 0 5px;
 	a {
 		text-decoration: none;
-	}
-	li {
 		padding: 15px 15px;
 		margin: 0;
 		height: 100%;

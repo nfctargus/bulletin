@@ -29,13 +29,22 @@ const ArticlePage = () => {
 						gap: 10px;
 						width: 100%;
 					`}>
-					<small>{article?.category}</small>
 					<h1
 						className={css`
 							width: 80%;
 						`}>
 						{article?.title}
 					</h1>
+					<small
+						className={css`
+							margin-left: 16px;
+							padding: 6px 12px;
+							background-color: #f5f5f5;
+							border-radius: 5px;
+							width: fit-content;
+						`}>
+						{article?.category}
+					</small>
 					<div
 						className={css`
 							padding-bottom: 20px;
@@ -44,6 +53,7 @@ const ArticlePage = () => {
 						`}>
 						{article?.author} {formatRelative(new Date(article!.publishedAt), 'iii, d MMMM yyyy hh:mmaaa')}
 					</div>
+
 					<div>{article && article.articleSections && article.articleSections?.map((section) => formatArticleSections(section))}</div>
 				</div>
 			)}

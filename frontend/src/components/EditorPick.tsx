@@ -21,7 +21,7 @@ const EditorPick = () => {
 	};
 	return (
 		<SectionWrapperStyle>
-			<SectionHeader headerText="Editors Pick" showSeeMoreText />
+			<SectionHeader headerText="Editors Pick" showSeeMoreText href="/flags/editors-pick" />
 			{(loadingPublishers || loadingArticles) && <EditorPickSkeleton />}
 			{(!loadingPublishers || !loadingArticles) && (
 				<div
