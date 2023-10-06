@@ -95,6 +95,19 @@ const ArticlePage = () => {
 				</div>
 
 				{!loadingComments && comments.map((comment) => <ArticleComment comment={comment} />)}
+				{comments.length < 1 && (
+					<div
+						className={css`
+							border: 1px solid #ccc;
+							padding: 20px;
+							font-size: 13px;
+							background-color: #f5f5f5;
+							border-radius: 5px;
+							margin: 15px 0;
+						`}>
+						There are no comments yet. Why don't you write one?
+					</div>
+				)}
 			</div>
 		</Layout>
 	);
