@@ -275,6 +275,39 @@ export const articles = [
 				kind: 'text',
 				text: 'MacRumors has obtained preliminary information on the weights and dimensions planned for the iPhone 16, iPhone 16 Plus, iPhone 16 Pro, and iPhone 16 Pro Max. The information corroborates previous reports suggesting that the iPhone 16 Pro and 16 Pro Max will feature larger displays.',
 			},
+			{
+				kind: 'heading',
+				text: 'iPhone 16 and 16 Plus',
+			},
+			{
+				kind: 'text',
+				text: 'Current information suggests that the iPhone 16‌ and 16 Plus will maintain the same dimensions as the current iPhone 15 and iPhone 15 Plus, with the only difference being an increase in weight of around 2 grams for both models - 173g for the iPhone 16, and 203g for iPhone 16‌ Plus. The iPhone 16‌ and iPhone 16‌ Plus will be available in the same 6.1-inch and 6.7-inch display sizes as their predecessors.',
+			},
+			{
+				kind: 'text',
+				text: 'Regardless of the dimensions, however, the base model ‌iPhone 16‌ and 16 Plus are expected to feature a redesigned camera bump, with a vertical camera arrangement similar to the iPhone 12. They are also likely to include a capacitive Action button and potentially even an all-new capacitive "Capture Button."',
+			},
+			{
+				kind: 'text',
+				text: 'In terms of materials, the ‌iPhone 16‌ and 16 Plus should use the same type of aluminum found on the ‌iPhone 15‌ chassis, and will also feature matte back glass. The choice of materials is unlikely to have any significant impact on the weight of the devices, with the increase being a consequence of minor design changes.',
+			},
+			{
+				kind: 'image',
+				url: 'https://images.macrumors.com/t/Mvo0wVFyxHSDDyUvWVoyWHEclRo=/1600x0/article-new/2023/02/iPhone-15-Pro-Periscope-Mock-Feature.jpg',
+				text: 'The iPhone 16 Pro Max could be the first to feature a super telephoto periscope camera for dramatically increased optical zoom, according to a new report coming out of Asia.',
+			},
+			{
+				kind: 'heading',
+				text: 'iPhone 16 Pro and 16 Pro Max',
+			},
+			{
+				kind: 'text',
+				text: 'The ‌iPhone 16‌ Pro and ‌iPhone 16‌ Pro Max will feature an increase in display size compared to the iPhone 15 Pro and ‌iPhone 15 Pro‌ Max, measuring roughly 6.3 inches and 6.9 inches, respectively. To be more precise, the ‌iPhone 16‌ Pro will have a 6.27-inch display (159.31 mm), while the ‌iPhone 16‌ Pro Max will feature a 6.85-inch (174.06 mm) panel.',
+			},
+			{
+				kind: 'text',
+				text: 'This represents a noticeable increase of 0.2 inches for both models. As a result, the dimensions of the device as a whole will increase. The ‌iPhone 16‌ Pro and 16 Pro Max will be slightly taller than their predecessors, while also being somewhat wider. Interestingly, the width of both devices appears to align with their respective ‌iPhone‌ 14-series counterparts, the iPhone 14 Pro and 14 Pro Max.',
+			},
 		],
 		category: 'Technology',
 		readTime: 10,
@@ -547,6 +580,63 @@ export const articles = [
 		readTime: 12,
 		urlToImage: 'https://image-service.usw2.wp-prod-us.cultureamp-cdn.com/Chv1r6ESE5ecQiQ1u_-zcyh1bzs=/1440x0/cultureampcom/production/309/cf7/1e8/309cf71e8a6efe1635a046dc/blog-how-to-manage-low-performing-employees.png',
 		publishedAt: '2023-10-01T09:15:59Z',
+		flags: [],
+	},
+	{
+		id: 50020,
+		publisher: 1011,
+		author: 'Juli Clover',
+		title: 'Apple Vision Pro Personas Have to Wear Generic Glasses',
+		articleSections: [
+			{
+				kind: 'text',
+				text: "With the Apple Vision Pro headset, the built-in cameras will create a customized 'Persona' that resembles the user, and this Persona is used in video chat apps like FaceTime.",
+			},
+			{
+				kind: 'image',
+				url: 'https://images.macrumors.com/t/_KnssyH37DwRZCukaO8ETUdeBpY=/1600x0/article-new/2023/06/Vision-Pro-Spatial-Personas.jpg',
+			},
+			{
+				kind: 'text',
+				text: "Creating a Persona involves a 3D capture of the face and upper body, but it turns out that Apple's technology won't be advanced enough to take glasses into account.",
+			},
+			{
+				kind: 'text',
+				text: "Apples VisionOS code requires users to remove anything that covers the face, such as glasses. There does not appear to be any kind of secondary scanning mechanism to separately capture a user's glasses, and instead, Apple will allow users to 'Select Eyewear' from a variety of options.",
+				attribution: 'Ashley Herd',
+			},
+			{
+				kind: 'image',
+				url: 'https://images.macrumors.com/t/ZPEvi5kaqEHPsCrrnQISfbvV05I=/1600x0/article-new/2023/10/vision-pro-persona-glasses.jpg',
+			},
+			{
+				kind: 'text',
+				text: 'Users will likely be able to find something that is close to their own frames, but there may not be an exact match available. It is not yet clear if color options will be available, but it seems like a level of customization that Apple would offer.',
+			},
+			{
+				kind: 'text',
+				text: "Apple uses the Vision Pro cameras to bring a user's facial expressions and hand movements to their Persona, giving it a more realistic feel that mimics person-to-person interactions.",
+			},
+			{
+				kind: 'text',
+				text: 'Personas are one aspect of ‌visionOS‌ that Apple is working on perfecting before the launch of the Vision Pro headset. In September, Apple began surveying developers who have the Vision Pro about their Personas, soliciting opinions on facial expressions, appearance matching, and more.',
+			},
+			{
+				kind: 'text',
+				text: 'The Vision Pro headset is set to launch in early 2024 in the United States, and it will be priced at $3,500.',
+				intentions: [
+					{
+						kind: 'emphasized',
+						index: 101,
+						length: 30,
+					},
+				],
+			},
+		],
+		category: 'Technology',
+		readTime: 12,
+		urlToImage: 'https://helios-i.mashable.com/imagery/articles/07tuBuTBuFeYMcleETUKNhk/hero-image.fill.size_1248x702.v1688386429.jpg',
+		publishedAt: '2023-10-06T09:15:59Z',
 		flags: [],
 	},
 ];
